@@ -1,19 +1,14 @@
 <template>
   <header v-if="checkRoute()" class="header">
-    <button @click="telaPrincipal" class="button">Home</button>
-    <button @click="listarCliente" class="button">Clientes</button>
-    <button @click="listarVeiculo" class="button">Carros</button>
-    <button @click="listarLocacao" class="button">Locações</button>
-    <div>
-      <button @click="logoff" class="button">Sair</button>
-    </div>
+    <img @click="telaPrincipal" alt="Vue logo" class="imageLogo" src="./assets/logoAvap.png">
+    <button @click="telaPrincipal" class="button">Consultas</button>
+    <button @click="listarCliente" class="button">Solicitações</button>
+    <button @click="pageAjuda" class="button">Ajuda</button>
+    <button @click="pageSobre" class="button">Sobre</button>
+    <img alt="Vue logo" class="image" src="./assets/iconMan.png">
   </header>
-  <h1>VA locs</h1>
-  <img alt="Vue logo" src="./assets/logo.png">
+
   <router-view></router-view>
-    <footer v-if="checkRoute()">
-        <p>&copy; 2023 Locadora de carros VA locs</p>
-    </footer>
 </template>
 
 <script>
@@ -25,11 +20,14 @@ export default {
     listarCliente() {
         this.$router.push({ name: 'listaCliente'});
     },
-    listarLocacao() {
-        this.$router.push({ name: 'listarLocacoes'});
+    pageSobre() {
+        this.$router.push({ name: 'pageSobre'});
     },
     listarVeiculo() {
         this.$router.push({ name: 'MostrarVeiculo'});
+    },
+    pageAjuda() {
+        this.$router.push({ name: 'ajudaPage'});
     },
     telaPrincipal() {
         this.$router.push({ name: 'telaPrincipal'});
@@ -38,7 +36,7 @@ export default {
       this.$router.push({ name: 'loginForm'}); 
     },
     checkRoute(){
-      return this.$route.name != 'loginForm' && this.$route.name != 'cadastroUsuario'     
+      return this.$route.name != 'loginForm' && this.$route.name != 'cadastroUsuario' && this.$route.name != 'loginAvap' ; 
     }
   }
 }
@@ -59,14 +57,16 @@ body{
 
 .header{
   display: flex;
-  background-color: #333;
+  background-color: #DE3030;
   color: #fff;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 .header button{
-  background-color: #333;
+  background-color: #DE3030;
 }
 
 h1 {
@@ -112,5 +112,15 @@ footer {
 
 .button:hover {
   background-color: #408ee2;
+}
+
+.image {
+  margin-left: auto; 
+  width: 40px;
+}
+
+.imageLogo {
+  margin-right: auto; 
+  width: 150px;
 }
 </style>

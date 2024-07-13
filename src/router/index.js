@@ -18,6 +18,16 @@ const routes = [
     component: () => import('../components/login.vue')
   },
   {
+    path: '/loginAvap',
+    name: 'loginAvap',
+    component: () => import('../views/loginAvap.vue')
+  },
+  {
+    path: '/ajudaPage',
+    name: 'ajudaPage',
+    component: () => import('../views/ajudaPage.vue')
+  },
+  {
     path: '/listaCliente',
     name: 'listaCliente',
     component: () => import('../components/listarClientes.vue')
@@ -58,9 +68,9 @@ const routes = [
     component: () => import('../components/cadastroLocacao.vue')
   },
   {
-    path: '/listarLocacoes',
-    name: 'listarLocacoes',
-    component: () => import('../components/listarLocacoes.vue')
+    path: '/pageSobre',
+    name: 'pageSobre',
+    component: () => import('../components/pageSobre.vue')
   },
 ] 
 
